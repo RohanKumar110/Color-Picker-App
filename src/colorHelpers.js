@@ -22,7 +22,7 @@ function generatePalette(starterPalette) {
                 id: color.name.toLowerCase().replace(/ /g, "-"),
                 hex: scale[i],
                 rgb: chroma(scale[i]).css(),
-                rbga: chroma(scale[i]).css().replace("rgb", "rgba").replace(")", ",1)")
+                rgba: chroma(scale[i]).css().replace("rgb", "rgba").replace(")", ",1)")
             });
         }
     }

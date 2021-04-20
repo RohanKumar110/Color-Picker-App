@@ -18,7 +18,6 @@ class Palette extends Component {
 
     changeColorFormat(colorFormat) {
         this.setState({ format: colorFormat });
-        console.log(colorFormat);
     }
 
     render() {

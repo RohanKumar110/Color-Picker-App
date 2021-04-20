@@ -6,12 +6,8 @@
     position: relative;
     cursor: pointer;
     text-transform: uppercase;
-    margin-bottom: -3.5px;
+    margin-bottom: -4px;
 }
-
-/* .ColorBox-copy-container{
-
-} */
 
 .ColorBox-box-content{
     position: absolute;

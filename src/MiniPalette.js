@@ -9,9 +9,7 @@ const styles = {
         postion: "relative",
         overflow: "hidden",
         border: "1px solid black",
-        "& hover": {
-            cursor: "pointer"
-        }
+        cursor: "pointer"
     },
     colors: {
         backgroundColor: "#ffffff",
@@ -24,14 +22,13 @@ const styles = {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        margin: "5px 0",
+        margin: "0",
         color: "black",
         paddingTop: "0.5rem",
         fontSize: "0.8rem",
         postion: "relative"
     },
     emoji: {
-        marginLeft: "0.5rem",
         fontSize: "1rem"
     },
     miniColor: {
@@ -46,9 +43,9 @@ const styles = {
 
 function MiniPalette(props) {
 
-    const { classes, paletteName, emoji, colors } = props;
+    const { classes, paletteName, emoji, colors, handleClick } = props;
     return (
-        <div className={classes.root}>
+        <div className={classes.root} onClick={handleClick}>
             <div className={classes.colors}>
                 {colors.map(color => (
                     <div

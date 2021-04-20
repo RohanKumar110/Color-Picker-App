@@ -22,7 +22,7 @@ const styles = {
         width: "100%",
         justifyContent: "space-between",
         color: "#ffffff",
-        margin: "5px 0"
+        margin: "10px 0"
     },
     palettes: {
         width: "100%",
@@ -34,8 +34,11 @@ const styles = {
 
 class PaletteList extends Component {
 
-    render() {
+    goToPalette(id) {
+        this.props.history.push(`/palette/${id}`);
+    }
 
+    render() {
         const { palettes, classes } = this.props;
         return (
             <div className={classes.root}>
@@ -46,7 +49,10 @@ class PaletteList extends Component {
                     <div className={classes.palettes}>
                         {palettes.map(palette => (
                             <div>
-                                <MiniPalette key={palette.id} {...palette} />
+                                <MiniPalette
+                                    key={palette.id}
+                                    {...palette}
+                                    handleClick={() => this.goToPalette(palette.id)} />
                             </div>
                         ))}
                     </div>

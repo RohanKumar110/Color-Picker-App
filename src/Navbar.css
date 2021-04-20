@@ -16,6 +16,11 @@
     align-items: center;
 }
 
+.Navbar-logo a{
+    text-decoration: none;
+    color: #000000;
+}
+
 /* Slider  */
 
 .Navbar-slider-container span{

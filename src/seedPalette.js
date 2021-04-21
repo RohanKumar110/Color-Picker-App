@@ -50,7 +50,8 @@ const seedPalette = [
       { name: "Pumpkin", color: "#d35400" },
       { name: "Pomegranate", color: "#c0392b" },
       { name: "Silver", color: "#bdc3c7" },
-      { name: "Asbestos", color: "#7f8c8d" }
+      { name: "Asbestos", color: "#7f8c8d" },
+
     ]
   },
   {

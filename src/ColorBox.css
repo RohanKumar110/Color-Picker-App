@@ -1,19 +1,15 @@
 .ColorBox {
     width: 20%;
-    height: 25%;
+    height: 50%;
     margin: 0 auto;
     display: inline-block;
     position: relative;
     cursor: pointer;
-    text-transform: uppercase;
     margin-bottom: -4px;
+    text-transform: uppercase;
 }
 
-.SingleColorPalette .ColorBox {
-    height: 50%;
-}
-
-.ColorBox.go-back {
+.go-back {
    background-color: #000000; 
     position: relative;
 }
@@ -29,15 +25,6 @@
     font-size: 12px;
 }
 
-.light-text {
-    color: #ffffff;
-}
-
-.ColorBox .dark-text {
-    color: rgba(0, 0, 0, 0.5);
-}
-
-.copy-button,
 .back-button{ 
     width: 100px;
     height: 30px;
@@ -56,29 +43,6 @@
     border: none;
     cursor: pointer;
     text-decoration: none;
-}
-
-.copy-button {
-    opacity: 0;
-}
-
-.ColorBox:hover .copy-button {
-    opacity: 1;
-    transition: 0.5s ease-in-out;
-}
-
-.ColorBox-see-more{
-    background-color: rgba(255, 255, 255, 0.3);
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 2px;
-    border: none;
-    color: #ffffff;
-    width: 60px;
-    line-height: 30px;
-    height: 30px;
-    text-align: center;
 }
 
 .ColorBox-copy-overlay {

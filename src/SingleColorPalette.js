@@ -21,7 +21,7 @@ class SingleColorPalette extends Component {
                 allColors[key].filter(color => color.id === colorFilterBy)
             )
         }
-        return shades;
+        return shades.slice(1);
     }
 
     changeColorFormat(colorFormat) {

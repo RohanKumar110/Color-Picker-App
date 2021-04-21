@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ColorBox from "./ColorBox";
 import Navbar from "./Navbar";
-import "./Palette.css";
 import PaletteFooter from "./PaletteFooter";
+import styles from "./styles/PaletteStyles";
 import { withStyles } from "@material-ui/styles";
 
 class Palette extends Component {
@@ -46,17 +46,6 @@ class Palette extends Component {
                 <PaletteFooter paletteName={paletteName} emoji={emoji} />
             </div>
         )
-    }
-}
-
-const styles = {
-    palette: {
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column"
-    },
-    paletteColors: {
-        height: "90%"
     }
 }
 

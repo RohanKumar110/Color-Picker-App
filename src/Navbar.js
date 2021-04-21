@@ -7,7 +7,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import 'rc-slider/assets/index.css';
 import { Link } from "react-router-dom";
-import "./Navbar.css";
+import styles from "./styles/NavbarStyles";
+import { withStyles } from "@material-ui/styles";
 
 class Navbar extends Component {
 
@@ -28,18 +29,18 @@ class Navbar extends Component {
     }
 
     render() {
-        const { level, changeLevel, showingAllColors } = this.props;
+        const { level, changeLevel, showingAllColors, classes } = this.props;
         const { colorFormat } = this.state;
 
         return (
-            <header className="Navbar">
-                <div className="Navbar-logo">
+            <header className={classes.navbar}>
+                <div className={classes.navbarLogo}>
                     <Link to="/">ColorPicker</Link>
                 </div>
                 {showingAllColors &&
-                    <div className="Navbar-slider-container">
-                        <span>Level: {level}</span>
-                        <div className="Navbar-slider">
+                    <div>
+                        <span className={classes.colorLevel}>Level: {level}</span>
+                        <div className={classes.slider}>
                             <Slider
                                 min={100}
                                 defaultValue={level}
@@ -48,7 +49,7 @@ class Navbar extends Component {
                         </div>
                     </div>
                 }
-                <div className="Navbar-select-container">
+                <div className={classes.selectContainer}>
                     <Select value={colorFormat} onChange={this.handleFormatChange}>
                         <MenuItem value="hex" selected>Hex - #ffffff</MenuItem>
                         <MenuItem value="rgb">RGB - rgb(255,255,255)</MenuItem>
@@ -73,4 +74,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+export default withStyles(styles)(Navbar);

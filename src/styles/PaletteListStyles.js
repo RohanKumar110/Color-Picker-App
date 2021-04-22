@@ -1,13 +1,15 @@
 const styles = {
     root: {
-        backgroundColor: "lightBlue",
+        backgroundColor: "blue",
         height: "100vh",
+        width: "100vw",
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center"
     },
     container: {
         width: "50%",
+        margin: "0 auto",
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
@@ -17,14 +19,19 @@ const styles = {
         display: "flex",
         width: "100%",
         justifyContent: "space-between",
-        color: "#ffffff",
-        margin: "10px 0"
+        alignItems: "center",
+        color: "white",
+        margin: "10px 0",
+        "& a": {
+            color: "white"
+        }
     },
     palettes: {
         width: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(3, 30%)",
-        gridGap: "3%"
+        gridGap: "5%",
+
     }
 }
 

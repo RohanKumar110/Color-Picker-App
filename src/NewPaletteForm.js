@@ -11,84 +11,43 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { ChromePicker } from "react-color";
-import { Button } from "@material-ui/core";
-
-const drawerWidth = 360;
-
-const styles = theme => ({
-    root: {
-        display: "flex"
-    },
-    appBar: {
-        transition: theme.transitions.create(["margin", "width"], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen
-        })
-    },
-    appBarShift: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-        transition: theme.transitions.create(["margin", "width"], {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen
-        })
-    },
-    menuButton: {
-        marginLeft: 12,
-        marginRight: 20
-    },
-    hide: {
-        display: "none"
-    },
-    drawer: {
-        width: drawerWidth,
-        flexShrink: 0
-    },
-    drawerPaper: {
-        width: drawerWidth
-    },
-    drawerHeader: {
-        display: "flex",
-        alignItems: "center",
-        padding: "0 8px",
-        ...theme.mixins.toolbar,
-        justifyContent: "flex-end"
-    },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-        transition: theme.transitions.create("margin", {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen
-        }),
-        marginLeft: -drawerWidth
-    },
-    contentShift: {
-        transition: theme.transitions.create("margin", {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen
-        }),
-        marginLeft: 0
-    }
-});
+import { Button, colors } from "@material-ui/core";
+import styles from "./styles/NewPaletteFormStyles";
 
 class NewPaletteForm extends Component {
-    state = {
-        open: false
-    };
 
-    handleDrawerOpen = () => {
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false,
+            currentColor: "teal",
+            colors: ["purple", "#e15764"]
+        };
+        this.addNewColor = this.addNewColor.bind(this);
+        this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
+        this.handleDrawerClose = this.handleDrawerClose.bind(this);
+        this.updateCurrentColor = this.updateCurrentColor.bind(this);
+    }
+
+    handleDrawerOpen() {
         this.setState({ open: true });
-    };
+    }
 
-    handleDrawerClose = () => {
+    handleDrawerClose() {
         this.setState({ open: false });
-    };
+    }
+
+    updateCurrentColor(newColor) {
+        this.setState({ currentColor: newColor.hex });
+    }
+
+    addNewColor() {
+        this.setState({ colors: [...this.state.colors, this.state.currentColor] })
+    }
 
     render() {
         const { classes } = this.props;
-        const { open } = this.state;
-
+        const { open, colors } = this.state;
         return (
             <div className={classes.root}>
                 <CssBaseline />
@@ -132,9 +91,15 @@ class NewPaletteForm extends Component {
                         <Button variant="contained" color="secondary">CLEAR PALETTE</Button>
                         <Button variant="contained" color="primary">Random Color</Button>
                     </div>
-                    <ChromePicker color="purple"
-                        onChangeComplete={newColor => console.log(newColor)} />
-                    <Button variant="contained" color="primary">Add Color</Button>
+                    <ChromePicker color={this.state.currentColor}
+                        onChangeComplete={this.updateCurrentColor} />
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={this.addNewColor}
+                        style={{ backgroundColor: this.state.currentColor }}>
+                        Add Color
+                    </Button>
                 </Drawer>
                 <main
                     className={classNames(classes.content, {
@@ -142,6 +107,11 @@ class NewPaletteForm extends Component {
                     })}
                 >
                     <div className={classes.drawerHeader} />
+                    <ul>
+                        {colors.map(color => (
+                            <li style={{ color: "white", background: color }}>{color}</li>
+                        ))}
+                    </ul>
                 </main>
             </div>
         );

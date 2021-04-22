@@ -1,11 +1,10 @@
 const styles = {
     root: {
-        backgroundColor: "blue",
-        height: "100vh",
-        width: "100vw",
+        height: "100%",
         display: "flex",
         alignItems: "flex-start",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor: "blue",
     },
     container: {
         width: "50%",

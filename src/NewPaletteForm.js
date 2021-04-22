@@ -26,6 +26,7 @@ class NewPaletteForm extends Component {
             newColorName: "",
             colors: [{ name: "blue", color: "#004480" }]
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.addNewColor = this.addNewColor.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
@@ -71,6 +72,18 @@ class NewPaletteForm extends Component {
         this.setState({ newColorName: "", currentColor: "" });
     }
 
+    handleSubmit() {
+        let newName = "New Palette";
+        const newPalette = {
+            id: newName.toLowerCase().replace(/ /g, "-"),
+            emoji: "emoji",
+            paletteName: newName,
+            colors: this.state.colors
+        };
+        this.props.savePalette(newPalette);
+        this.props.history.push("/");
+    }
+
     render() {
         const { classes } = this.props;
         const { open, colors, newColorName } = this.state;
@@ -79,22 +92,32 @@ class NewPaletteForm extends Component {
                 <CssBaseline />
                 <AppBar
                     position='fixed'
+                    color="default"
                     className={classNames(classes.appBar, {
                         [classes.appBarShift]: open
-                    })}
-                >
+                    })}>
                     <Toolbar disableGutters={!open}>
                         <IconButton
                             color='inherit'
                             aria-label='Open drawer'
                             onClick={this.handleDrawerOpen}
-                            className={classNames(classes.menuButton, open && classes.hide)}
-                        >
+                            className={classNames(classes.menuButton, open && classes.hide)}>
                             <MenuIcon />
                         </IconButton>
                         <Typography variant='h6' color='inherit' noWrap>
-                            Persistent drawer
-            </Typography>
+                            Create a Palette
+                        </Typography>
+                        <Button
+                            variant="contained"
+                            color="secondary">
+                            Go Back
+                        </Button>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={this.handleSubmit}>
+                            Save Palette
+                        </Button>
                     </Toolbar>
                 </AppBar>
                 <Drawer
@@ -104,8 +127,7 @@ class NewPaletteForm extends Component {
                     open={open}
                     classes={{
                         paper: classes.drawerPaper
-                    }}
-                >
+                    }}>
                     <div className={classes.drawerHeader}>
                         <IconButton onClick={this.handleDrawerClose}>
                             <ChevronLeftIcon />
@@ -140,8 +162,7 @@ class NewPaletteForm extends Component {
                 <main
                     className={classNames(classes.content, {
                         [classes.contentShift]: open
-                    })}
-                >
+                    })}>
                     <div className={classes.drawerHeader} />
                     {colors.map(color => (
                         <DraggableColorBox

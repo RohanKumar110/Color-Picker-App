@@ -19,8 +19,8 @@ class PaletteFormNav extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    componentDidCatch() {
-        ValidatorForm.addValidationRule("isPaletteNameUnique", (value) =>
+    componentDidMount() {
+        ValidatorForm.addValidationRule("isPaletteNameUnique", value =>
             this.props.palettes.every(
                 ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
             )

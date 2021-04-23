@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
+import classNames from "classnames";
 import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -98,7 +98,6 @@ class NewPaletteForm extends Component {
             <div className={classes.root}>
                 <PaletteFormNav
                     open={open}
-                    classes={classes}
                     palettes={palettes}
                     handleSubmit={this.handleSubmit}
                     handleDrawerOpen={this.handleDrawerOpen}
@@ -150,4 +149,5 @@ class NewPaletteForm extends Component {
         );
     }
 }
+
 export default withStyles(styles, { withTheme: true })(NewPaletteForm);

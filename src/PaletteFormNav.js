@@ -63,6 +63,7 @@ class PaletteFormNav extends Component {
                         <ValidatorForm onSubmit={() => handleSubmit(newPaletteName)}>
                             <TextValidator
                                 name="newPaletteName"
+                                placeholder="Palette Name"
                                 label="Palette Name"
                                 value={this.state.newPaletteName}
                                 onChange={this.handleChange}

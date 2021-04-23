@@ -116,23 +116,30 @@ class NewPaletteForm extends Component {
                         </IconButton>
                     </div>
                     <Divider />
-                    <Typography variant="h4">Design Your Palette</Typography>
-                    <div>
-                        <Button variant="contained" color="secondary" onClick={this.clearPalette}>
-                            CLEAR PALETTE
+                    <div className={classes.container}>
+                        <Typography variant="h4" gutterBottom>Design Your Palette</Typography>
+                        <div className={classes.buttonContainer}>
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                className={classes.button}
+                                onClick={this.clearPalette}>
+                                CLEAR PALETTE
                         </Button>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            disabled={paletteIsFull}
-                            onClick={this.genRandomColor}>
-                            Random Color
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                disabled={paletteIsFull}
+                                className={classes.button}
+                                onClick={this.genRandomColor}>
+                                Random Color
                         </Button>
+                        </div>
+                        <ColorPickerForm
+                            colors={colors}
+                            paletteIsFull={paletteIsFull}
+                            addNewColor={this.addNewColor} />
                     </div>
-                    <ColorPickerForm
-                        colors={colors}
-                        paletteIsFull={paletteIsFull}
-                        addNewColor={this.addNewColor} />
                 </Drawer>
                 <main
                     className={classNames(classes.content, {

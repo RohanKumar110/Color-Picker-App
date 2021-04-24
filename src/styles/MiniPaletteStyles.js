@@ -42,8 +42,8 @@ const styles = {
     deleteIcon: {
         color: "white",
         backgroundColor: "#eb3d30",
-        width: "20px",
-        height: "20px",
+        width: "25px",
+        height: "25px",
         position: "absolute",
         right: "0px",
         top: "0px",

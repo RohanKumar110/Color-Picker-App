@@ -1,10 +1,24 @@
+import bg from "./bg.svg"
+
 const styles = {
+
+    "@global": {
+        ".fade-exit": {
+            opacity: 1
+        },
+        ".fade-exit-active": {
+            opacity: 0,
+            transition: "opacity 500ms ease-out"
+        }
+    },
     root: {
         height: "100vh",
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center",
-        backgroundColor: "blue",
+        backgroundColor: "#1e8feb",
+        backgroundImage: `url(${bg})`,
+        overflowY: "scroll",
     },
     container: {
         width: "50%",

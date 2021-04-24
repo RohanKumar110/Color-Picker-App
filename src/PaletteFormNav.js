@@ -16,7 +16,7 @@ class PaletteFormNav extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { formShowing: false }
+        this.state = { formShowing: false };
         this.handleChange = this.handleChange.bind(this);
         this.showForm = this.showForm.bind(this);
         this.hideForm = this.hideForm.bind(this);

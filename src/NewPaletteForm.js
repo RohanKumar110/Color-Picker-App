@@ -78,13 +78,13 @@ class NewPaletteForm extends Component {
         }));
     };
 
-    handleSubmit(newPaletteName) {
-        const { colors } = this.state;
+    handleSubmit(newPaletteName, newEmoji) {
+
         const newPalette = {
             id: newPaletteName.toLowerCase().replace(/ /g, "-"),
-            emoji: "emoji",
+            emoji: newEmoji,
             paletteName: newPaletteName,
-            colors: colors
+            colors: this.state.colors
         };
         this.props.savePalette(newPalette);
         this.props.history.push("/");

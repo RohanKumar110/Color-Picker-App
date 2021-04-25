@@ -1,10 +1,14 @@
-const styles = {
+import sizes from "./sizes";
 
+const styles = {
     navbar: {
         display: "flex",
         alignItems: "center",
         justifyContent: "flex- start",
         height: "6vh",
+        [sizes.down("xs")]: {
+            padding: "20px 10px"
+        }
     },
     navbarLogo: {
         marginRight: "15px",
@@ -18,6 +22,9 @@ const styles = {
         "& a": {
             textDecoration: "none",
             color: "#000000",
+        },
+        [sizes.down("xs")]: {
+            display: "none"
         }
     },
     colorLevel: {
@@ -43,6 +50,12 @@ const styles = {
             height: "13px",
             marginLeft: "-7px",
             marginTop: "-3px"
+        },
+        [sizes.down("sm")]: {
+            width: "150px"
+        },
+        [sizes.down("xs")]: {
+            margin: "0"
         }
     },
     selectContainer: {

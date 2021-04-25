@@ -23,7 +23,7 @@ class NewPaletteForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false,
+            open: true,
             colors: seedPalette[0].colors
         };
         this.handleSubmit = this.handleSubmit.bind(this);

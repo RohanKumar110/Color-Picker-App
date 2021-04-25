@@ -2,7 +2,7 @@ import { DRAWER_WIDTH } from "../constants";
 
 const styles = theme => ({
     root: {
-        display: "flex"
+        display: "flex",
     },
     drawer: {
         width: DRAWER_WIDTH,
